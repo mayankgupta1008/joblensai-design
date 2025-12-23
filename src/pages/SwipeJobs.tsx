@@ -214,7 +214,7 @@ export default function SwipeJobs() {
           </div>
 
           {/* Card Stack */}
-          <div className="relative h-[520px]">
+          <div className="relative h-[450px] sm:h-[480px] md:h-[520px]">
             {hasMoreJobs ? (
               <>
                 {/* Background cards */}
@@ -260,71 +260,76 @@ export default function SwipeJobs() {
                     PASS
                   </div>
 
-                  <div className="h-full flex flex-col p-6">
+                  <div className="h-full flex flex-col p-4 sm:p-5 md:p-6">
                     {/* Company Header */}
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="h-16 w-16 rounded-xl gradient-accent flex items-center justify-center text-2xl font-bold text-accent-foreground shrink-0">
+                    <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                      <div className="h-12 w-12 sm:h-14 md:h-16 sm:w-14 md:w-16 rounded-xl gradient-accent flex items-center justify-center text-xl sm:text-2xl font-bold text-accent-foreground shrink-0">
                         {currentJob.logo}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h2 className="text-xl font-bold truncate">{currentJob.title}</h2>
-                        <div className="flex items-center gap-1 text-muted-foreground">
-                          <Building2 className="h-4 w-4" />
-                          <span>{currentJob.company}</span>
+                        <h2 className="text-lg sm:text-xl font-bold truncate">{currentJob.title}</h2>
+                        <div className="flex items-center gap-1 text-muted-foreground text-sm">
+                          <Building2 className="h-3 w-3 sm:h-4 sm:w-4" />
+                          <span className="truncate">{currentJob.company}</span>
                         </div>
                       </div>
                       <Badge variant="secondary" className={cn(
-                        "shrink-0",
+                        "shrink-0 text-xs sm:text-sm",
                         currentJob.match >= 90 ? "gradient-like text-success-foreground border-0" : ""
                       )}>
-                        {currentJob.match}% Match
+                        {currentJob.match}%
                       </Badge>
                     </div>
 
                     {/* Job Details */}
-                    <div className="grid grid-cols-2 gap-3 mb-4">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <MapPin className="h-4 w-4" />
+                    <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-3 sm:mb-4">
+                      <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground">
+                        <MapPin className="h-3 w-3 sm:h-4 sm:w-4 shrink-0" />
                         <span className="truncate">{currentJob.location}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <DollarSign className="h-4 w-4" />
+                      <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground">
+                        <DollarSign className="h-3 w-3 sm:h-4 sm:w-4 shrink-0" />
                         <span className="truncate">{currentJob.salary}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Briefcase className="h-4 w-4" />
+                      <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground">
+                        <Briefcase className="h-3 w-3 sm:h-4 sm:w-4 shrink-0" />
                         <span>{currentJob.type}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Clock className="h-4 w-4" />
+                      <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground">
+                        <Clock className="h-3 w-3 sm:h-4 sm:w-4 shrink-0" />
                         <span>{currentJob.posted}</span>
                       </div>
                     </div>
 
                     {/* Skills */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {currentJob.skills.map((skill) => (
-                        <Badge key={skill} variant="outline" className="bg-secondary/50">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                      {currentJob.skills.slice(0, 3).map((skill) => (
+                        <Badge key={skill} variant="outline" className="bg-secondary/50 text-xs">
                           {skill}
                         </Badge>
                       ))}
+                      {currentJob.skills.length > 3 && (
+                        <Badge variant="outline" className="bg-secondary/50 text-xs">
+                          +{currentJob.skills.length - 3}
+                        </Badge>
+                      )}
                       {currentJob.remote && (
-                        <Badge className="gradient-accent border-0 text-accent-foreground">
-                          Remote OK
+                        <Badge className="gradient-accent border-0 text-accent-foreground text-xs">
+                          Remote
                         </Badge>
                       )}
                     </div>
 
                     {/* Description */}
-                    <p className="text-muted-foreground text-sm flex-1 line-clamp-4">
+                    <p className="text-muted-foreground text-xs sm:text-sm flex-1 line-clamp-3 sm:line-clamp-4">
                       {currentJob.description}
                     </p>
 
                     {/* AI Agent Preview */}
-                    <div className="mt-4 p-3 rounded-xl bg-secondary/50 border border-border">
-                      <div className="flex items-center gap-2 text-sm">
-                        <div className="h-6 w-6 rounded-full gradient-accent flex items-center justify-center animate-ai-pulse">
-                          <Sparkles className="h-3 w-3 text-accent-foreground" />
+                    <div className="mt-3 sm:mt-4 p-2 sm:p-3 rounded-xl bg-secondary/50 border border-border">
+                      <div className="flex items-center gap-2 text-xs sm:text-sm">
+                        <div className="h-5 w-5 sm:h-6 sm:w-6 rounded-full gradient-accent flex items-center justify-center animate-ai-pulse">
+                          <Sparkles className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-accent-foreground" />
                         </div>
                         <span className="text-muted-foreground">AI Agent ready to apply</span>
                       </div>
@@ -351,36 +356,36 @@ export default function SwipeJobs() {
 
           {/* Action Buttons */}
           {hasMoreJobs && (
-            <div className="flex items-center justify-center gap-4 mt-6">
+            <div className="flex items-center justify-center gap-3 sm:gap-4 mt-4 sm:mt-6">
               <Button
                 variant="outline"
                 size="icon"
-                className="h-12 w-12 rounded-full"
+                className="h-10 w-10 sm:h-12 sm:w-12 rounded-full"
                 onClick={handleUndo}
                 disabled={currentIndex === 0}
               >
-                <RotateCcw className="h-5 w-5" />
+                <RotateCcw className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
               <Button
                 size="icon"
-                className="h-16 w-16 rounded-full gradient-pass shadow-lg"
+                className="h-14 w-14 sm:h-16 sm:w-16 rounded-full gradient-pass shadow-lg"
                 onClick={() => handleSwipe("left")}
               >
-                <X className="h-8 w-8" />
+                <X className="h-6 w-6 sm:h-8 sm:w-8" />
               </Button>
               <Button
                 size="icon"
-                className="h-20 w-20 rounded-full gradient-like shadow-lg shadow-accent/30"
+                className="h-16 w-16 sm:h-20 sm:w-20 rounded-full gradient-like shadow-lg shadow-accent/30"
                 onClick={() => handleSwipe("right")}
               >
-                <Heart className="h-10 w-10" />
+                <Heart className="h-8 w-8 sm:h-10 sm:w-10" />
               </Button>
               <Button
                 variant="outline"
                 size="icon"
-                className="h-12 w-12 rounded-full border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border-accent text-accent hover:bg-accent hover:text-accent-foreground"
               >
-                <Star className="h-5 w-5" />
+                <Star className="h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
             </div>
           )}

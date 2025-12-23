@@ -59,7 +59,7 @@ export function AppLayout() {
           title={title}
           onMenuClick={() => setMobileOpen(!mobileOpen)}
         />
-        <main className="p-6">
+        <main className="p-3 sm:p-4 md:p-6">
           <Outlet />
         </main>
       </div>

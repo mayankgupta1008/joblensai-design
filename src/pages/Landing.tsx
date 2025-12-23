@@ -104,23 +104,23 @@ export default function Landing() {
     <div className="min-h-screen bg-background">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
+        <div className="container mx-auto flex h-14 sm:h-16 items-center justify-between px-3 sm:px-4">
           <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl gradient-primary shadow-glow">
-              <Zap className="h-5 w-5 text-primary-foreground" />
+            <div className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl gradient-primary shadow-glow">
+              <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold">Swipe<span className="text-gradient">Jobs</span></span>
+            <span className="text-lg sm:text-xl font-bold">Swipe<span className="text-gradient">Jobs</span></span>
           </div>
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</a>
             <a href="#how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors">How it Works</a>
             <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
           </div>
-          <div className="flex items-center gap-3">
-            <Button variant="ghost" size="sm" asChild>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <Button variant="ghost" size="sm" className="hidden sm:inline-flex" asChild>
               <Link to="/dashboard">Sign In</Link>
             </Button>
-            <Button size="sm" className="gradient-primary border-0 shadow-glow" asChild>
+            <Button size="sm" className="gradient-primary border-0 shadow-glow text-xs sm:text-sm px-3 sm:px-4" asChild>
               <Link to="/swipe">Start Swiping</Link>
             </Button>
           </div>
@@ -128,111 +128,111 @@ export default function Landing() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 gradient-glow opacity-60" />
-        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px]" />
+        <div className="absolute top-1/3 left-1/4 w-[300px] sm:w-[400px] md:w-[500px] h-[300px] sm:h-[400px] md:h-[500px] bg-primary/10 rounded-full blur-[80px] sm:blur-[100px] md:blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[250px] sm:w-[300px] md:w-[400px] h-[250px] sm:h-[300px] md:h-[400px] bg-accent/10 rounded-full blur-[60px] sm:blur-[80px] md:blur-[100px]" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <Badge className="mb-6 gradient-accent border-0 text-accent-foreground px-4 py-1.5 animate-fade-in">
+            <Badge className="mb-4 sm:mb-6 gradient-accent border-0 text-accent-foreground px-3 sm:px-4 py-1 sm:py-1.5 animate-fade-in text-xs sm:text-sm">
               <Sparkles className="h-3 w-3 mr-1" /> AI-Powered Job Applications
             </Badge>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 animate-fade-in">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 sm:mb-6 animate-fade-in">
               Swipe Right on
               <span className="block text-gradient">Your Dream Job</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.1s" }}>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto animate-fade-in px-2" style={{ animationDelay: "0.1s" }}>
               The Tinder for job hunting. Swipe on jobs you love, and let our AI agent 
-              craft personalized applications and send them for you. Land interviews, not just applications.
+              craft personalized applications and send them for you.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <Button size="lg" className="gradient-primary border-0 text-lg px-8 h-14 shadow-glow" asChild>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+              <Button size="lg" className="gradient-primary border-0 text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14 shadow-glow w-full sm:w-auto" asChild>
                 <Link to="/swipe">
                   Start Swiping Free
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 h-14" asChild>
+              <Button size="lg" variant="outline" className="text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14 w-full sm:w-auto" asChild>
                 <Link to="/dashboard">View Demo</Link>
               </Button>
             </div>
 
             {/* Stats */}
-            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+            <div className="mt-10 sm:mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-gradient">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-muted-foreground mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Swipe Preview */}
-          <div className="mt-20 relative animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+          <div className="mt-12 sm:mt-16 md:mt-20 relative animate-fade-in-up hidden sm:block" style={{ animationDelay: "0.4s" }}>
             <div className="absolute inset-0 gradient-primary opacity-10 blur-3xl rounded-3xl" />
-            <div className="relative max-w-lg mx-auto">
+            <div className="relative max-w-sm sm:max-w-md md:max-w-lg mx-auto">
               {/* Mock Job Card */}
               <div className="relative rounded-2xl border border-border bg-card overflow-hidden shadow-2xl">
-                <div className="aspect-[3/4] bg-gradient-to-br from-secondary to-muted p-6 flex flex-col">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="h-14 w-14 rounded-xl gradient-accent flex items-center justify-center text-xl font-bold text-accent-foreground">
+                <div className="aspect-[3/4] bg-gradient-to-br from-secondary to-muted p-4 sm:p-6 flex flex-col">
+                  <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                    <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-xl gradient-accent flex items-center justify-center text-lg sm:text-xl font-bold text-accent-foreground">
                       G
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Senior Frontend Developer</h3>
-                      <p className="text-muted-foreground">Google • Mountain View, CA</p>
+                      <h3 className="font-semibold text-base sm:text-lg">Senior Frontend Developer</h3>
+                      <p className="text-muted-foreground text-sm">Google • Mountain View, CA</p>
                     </div>
                   </div>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    <Badge variant="secondary">React</Badge>
-                    <Badge variant="secondary">TypeScript</Badge>
-                    <Badge variant="secondary">$180k-$250k</Badge>
-                    <Badge variant="secondary">Remote OK</Badge>
+                  <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
+                    <Badge variant="secondary" className="text-xs">React</Badge>
+                    <Badge variant="secondary" className="text-xs">TypeScript</Badge>
+                    <Badge variant="secondary" className="text-xs">$180k-$250k</Badge>
+                    <Badge variant="secondary" className="text-xs">Remote OK</Badge>
                   </div>
-                  <p className="text-muted-foreground text-sm flex-1">
+                  <p className="text-muted-foreground text-xs sm:text-sm flex-1">
                     Join our team to build the next generation of web experiences. 
                     We're looking for passionate engineers who love creating beautiful, 
                     performant user interfaces at scale...
                   </p>
-                  <div className="flex items-center justify-between mt-6 pt-4 border-t border-border">
+                  <div className="flex items-center justify-between mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-border">
                     <span className="text-xs text-muted-foreground">Posted 2 hours ago</span>
                     <span className="text-xs text-accent">92% Match</span>
                   </div>
                 </div>
                 {/* Action buttons overlay */}
-                <div className="absolute bottom-6 left-0 right-0 flex items-center justify-center gap-8">
-                  <button className="h-16 w-16 rounded-full gradient-pass flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform">
-                    <X className="h-8 w-8 text-white" />
+                <div className="absolute bottom-4 sm:bottom-6 left-0 right-0 flex items-center justify-center gap-6 sm:gap-8">
+                  <button className="h-12 w-12 sm:h-16 sm:w-16 rounded-full gradient-pass flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform">
+                    <X className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                   </button>
-                  <button className="h-20 w-20 rounded-full gradient-like flex items-center justify-center shadow-lg shadow-accent/30 transform hover:scale-110 transition-transform">
-                    <Heart className="h-10 w-10 text-white" />
+                  <button className="h-16 w-16 sm:h-20 sm:w-20 rounded-full gradient-like flex items-center justify-center shadow-lg shadow-accent/30 transform hover:scale-110 transition-transform">
+                    <Heart className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
                   </button>
                 </div>
               </div>
 
               {/* Background cards */}
-              <div className="absolute -right-8 top-8 w-full h-full rounded-2xl border border-border bg-card/50 -z-10 rotate-3" />
-              <div className="absolute -left-8 top-8 w-full h-full rounded-2xl border border-border bg-card/30 -z-20 -rotate-3" />
+              <div className="absolute -right-4 sm:-right-8 top-4 sm:top-8 w-full h-full rounded-2xl border border-border bg-card/50 -z-10 rotate-3" />
+              <div className="absolute -left-4 sm:-left-8 top-4 sm:top-8 w-full h-full rounded-2xl border border-border bg-card/30 -z-20 -rotate-3" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 border-t border-border">
+      <section id="features" className="py-12 sm:py-16 md:py-24 border-t border-border">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="mb-4" variant="outline">Features</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Job Hunting,<span className="text-gradient"> Reinvented</span></h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <Badge className="mb-3 sm:mb-4" variant="outline">Features</Badge>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">Job Hunting,<span className="text-gradient"> Reinvented</span></h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
               Stop spending hours on applications. Let AI do the heavy lifting while you focus on what matters.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {features.map((feature, index) => (
               <Card
                 key={feature.title}
@@ -258,17 +258,17 @@ export default function Landing() {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-24 border-t border-border bg-secondary/20">
+      <section id="how-it-works" className="py-12 sm:py-16 md:py-24 border-t border-border bg-secondary/20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="mb-4" variant="outline">How It Works</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Four Steps to <span className="text-gradient-accent">Your Next Role</span></h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <Badge className="mb-3 sm:mb-4" variant="outline">How It Works</Badge>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">Four Steps to <span className="text-gradient-accent">Your Next Role</span></h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
               From resume to interview in just a few swipes.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {howItWorks.map((item, index) => (
               <div key={item.step} className="relative animate-fade-in-up" style={{ animationDelay: `${index * 0.15}s` }}>
                 {index < howItWorks.length - 1 && (
@@ -284,17 +284,17 @@ export default function Landing() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 border-t border-border">
+      <section id="pricing" className="py-12 sm:py-16 md:py-24 border-t border-border">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <Badge className="mb-4" variant="outline">Pricing</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Simple, <span className="text-gradient">Transparent</span> Pricing</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <Badge className="mb-3 sm:mb-4" variant="outline">Pricing</Badge>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">Simple, <span className="text-gradient">Transparent</span> Pricing</h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
               Start free. Upgrade when you're ready to supercharge your job search.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
             {pricingPlans.map((plan) => (
               <Card
                 key={plan.name}
@@ -341,20 +341,20 @@ export default function Landing() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 border-t border-border">
+      <section className="py-12 sm:py-16 md:py-24 border-t border-border">
         <div className="container mx-auto px-4">
-          <div className="relative rounded-3xl overflow-hidden">
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden">
             <div className="absolute inset-0 gradient-primary opacity-10" />
             <div className="absolute inset-0 gradient-glow" />
-            <div className="relative text-center py-20 px-8">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">Ready to Land Your Dream Job?</h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
+            <div className="relative text-center py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">Ready to Land Your Dream Job?</h2>
+              <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-xl mx-auto">
                 Join thousands of job seekers who've transformed their search with AI-powered applications.
               </p>
-              <Button size="lg" className="gradient-primary border-0 shadow-glow h-14 px-8 text-lg" asChild>
+              <Button size="lg" className="gradient-primary border-0 shadow-glow h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg w-full sm:w-auto" asChild>
                 <Link to="/swipe">
                   Start Swiping Now
-                  <ChevronRight className="ml-2 h-5 w-5" />
+                  <ChevronRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Link>
               </Button>
             </div>
@@ -363,9 +363,9 @@ export default function Landing() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-12">
+      <footer className="border-t border-border py-8 sm:py-10 md:py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl gradient-primary">
