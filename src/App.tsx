@@ -5,9 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
-import DataTables from "./pages/DataTables";
+import SwipeJobs from "./pages/SwipeJobs";
 import Settings from "./pages/Settings";
-import { AdminLayout } from "./components/layout/AdminLayout";
+import { AppLayout } from "./components/layout/AppLayout";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -19,22 +19,17 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          {/* Public Landing Page */}
           <Route path="/" element={<Landing />} />
+          <Route path="/swipe" element={<SwipeJobs />} />
           
-          {/* Admin Panel Routes */}
-          <Route element={<AdminLayout />}>
+          <Route element={<AppLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/data-tables" element={<DataTables />} />
-            <Route path="/analytics" element={<Dashboard />} />
-            <Route path="/users" element={<DataTables />} />
-            <Route path="/projects" element={<Dashboard />} />
-            <Route path="/notifications" element={<Settings />} />
-            <Route path="/help" element={<Settings />} />
+            <Route path="/applications" element={<Dashboard />} />
+            <Route path="/agent" element={<Dashboard />} />
+            <Route path="/profile" element={<Settings />} />
             <Route path="/settings" element={<Settings />} />
           </Route>
           
-          {/* Catch-all */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
