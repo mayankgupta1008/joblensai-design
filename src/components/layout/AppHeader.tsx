@@ -18,24 +18,24 @@ interface AppHeaderProps {
 
 export function AppHeader({ title, onMenuClick }: AppHeaderProps) {
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-background/80 backdrop-blur-sm px-6">
-      <div className="flex items-center gap-4">
+    <header className="sticky top-0 z-30 flex h-14 sm:h-16 items-center justify-between border-b border-border bg-background/80 backdrop-blur-sm px-3 sm:px-4 md:px-6">
+      <div className="flex items-center gap-2 sm:gap-4">
         <Button
           variant="ghost"
           size="icon"
-          className="lg:hidden"
+          className="lg:hidden h-9 w-9"
           onClick={onMenuClick}
         >
           <Menu className="h-5 w-5" />
         </Button>
-        <h1 className="text-xl font-semibold">{title}</h1>
+        <h1 className="text-lg sm:text-xl font-semibold truncate">{title}</h1>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 sm:gap-4">
         {/* AI Agent Status */}
-        <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20">
-          <div className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-          <span className="text-xs font-medium text-accent">AI Agent Active</span>
+        <div className="hidden sm:flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-accent/10 border border-accent/20">
+          <div className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-accent animate-pulse" />
+          <span className="text-[10px] sm:text-xs font-medium text-accent">AI Active</span>
         </div>
 
         {/* Notifications */}
